@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h2>Your Portfolio:</h2>
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="table-light">
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for share in shares %}
+                <tr>
+                    <td>{{ share.symbol }}</td>
+                    <td>{{ share.total_shares }}</td>
+                    <td>${{ share.price }}</td>
+                    <td>${{ '%0.2f'%(share.price * share.total_shares) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <tr>
+                <td colspan="4 align=right">Cash</td>
+                <td>${{ cash }}</td>
+            </tr>
+            <tr>
+                <td colspan="4 align=right">Total Value</td>
+                <td>${{ total_value }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

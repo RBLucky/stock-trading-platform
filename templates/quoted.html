@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-light">
+                <th>Price</th>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if quotes %}
+            <tr>
+                <td>{{ quotes['symbol'] }}</td>
+                <td>{{ quotes['price'] }}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
